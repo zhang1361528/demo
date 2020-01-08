@@ -1,0 +1,29 @@
+
+#端口，项目上下文根
+server:
+  port: 8080
+##配置数据源
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/user?serverTimezone=UTC&characterEncoding=utf-8
+    username: root
+    password: 124850
+    #jpa
+    jpa:
+      hibernate:
+        ddl-auto: update
+        show-sql: true
+    # formatSQL
+    properties:
+      hibernate:
+      format_sql: true
+      dialect: org.hibernate.dialect.MySQLDialect
+    #thymeleaf
+    thymeleaf:
+      cache: false
+      prefix: classpath:/templates/
+      suffix: .html
+      encoding: UTF-8
+      content-type: text/html
+      mode: HTML5

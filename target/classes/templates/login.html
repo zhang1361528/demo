@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <link href="bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet">
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="bootstrap-3.3.7-dist/js/jquery-3.2.1.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <!--先引入此js,再引入中文-->
+    <script src="validate/js/jquery.validator.js"></script>
+    <!--中文-->
+    <script src="validate/local/zh-CN.js"></script>
+</head>
+<body>
+<form id="form"  class="form-horizontal" action="/log1" method="get">
+    <div style="text-align: center">
+        <h1>用户登录</h1>
+    </div>
+    <div class="form-group " style="margin-top: 100px">
+        <label class="control-label col-xs-5">用户名</label>
+        <div class="col-xs-2">                                                                              <!--data-rule=y”检验规则“:启用y校验，   required:非空，
+                                                                                                             required;x:启用自定义校验x ,data-rule-x ：定义x的校验规则，写法 [正则, '提示语']   -->
+            <input type="text" class="form-control" id="userName" name="userName" placeholder="请输入用户名" data-rule="required;username;"
+                  data-rule-username="[/^[\u4e00-\u9fa5]{2,4}$/, '2-4位汉字']">
+        </div>
+    </div>
+    <div class="form-group " >
+        <label class="control-label col-xs-5">密码</label>
+        <div class="col-xs-2">
+            <input type="password" class="form-control" id="userPwd" name="userPwd" placeholder="请输入密码" data-rule="required;length(3~6)" >
+            <span th:text="${err}"></span>
+        </div>
+    </div>
+    <div class="form-group" >
+        <label class="control-label  col-xs-5"></label>
+        <div class="col-xs-1">
+            <!--<span th:text="${err}"></span>-->
+            <button type="submit" class="btn btn-info">登录</button>
+        </div>
+    </div>
+</form>
+</body>
+</html>
