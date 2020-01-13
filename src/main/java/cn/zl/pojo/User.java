@@ -2,43 +2,42 @@ package cn.zl.pojo;
 
 import lombok.Data;
 
-import javax.persistence.*;
 import java.io.Serializable;
 
-/**
- * @author Administrator
- */
 @Data
-@Entity
-@Table(name = "user")
 public class User implements Serializable {
-    @Id
-    @Column(name = "user_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int userId;
     /**
-     * 姓名
-     */
-    @Column(name = "user_name")
+    * id
+    */
+    private Integer userId;
+
+    /**
+    * 用户名
+    */
     private String userName;
+
     /**
-     * 密码
-     */
-    @Column(name = "user_pwd")
+    * 密码
+    */
     private Integer userPwd;
+
     /**
-     * 手机号
-     */
-    @Column(name = "mobile")
+    * 手机号
+    */
     private String mobile;
+
     /**
-     * 邮箱
-     */
-    @Column(name = "email")
+    * 邮箱
+    */
     private String email;
+
     /**
-     * 激活标记
-     */
-    @Column(name = "activate_mark")
-    private boolean activateMark;
+    * 盐值
+    */
+    private String salt;
+
+    /**
+    * 激活标记
+    */
+    private Boolean activateMark;
 }

@@ -3,6 +3,7 @@ package cn.zl.controller;
 import cn.zl.dao.UserDao;
 import cn.zl.pojo.User;
 import cn.zl.util.MobileUtil;
+import cn.zl.util.TransApi;
 import cn.zl.util.Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -168,6 +169,15 @@ public class UserController {
             return "succeed";
         }
         return "error";
+    }
+
+    public static void main(String[] args) {
+        String APP_ID = "20190418000289341";
+       String SECURITY_KEY = "oJ9EwzQG2344l4_l8kL1";
+        TransApi api = new TransApi(APP_ID, SECURITY_KEY);
+        String s = api.getTransResult("你好吗", "zh", "en");
+        System.out.println(s);
+
 
     }
 }

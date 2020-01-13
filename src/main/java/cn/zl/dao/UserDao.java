@@ -11,7 +11,7 @@ import org.springframework.data.repository.query.Param;
  */
 public interface UserDao extends JpaRepository<User,Integer> {
     @Query(value = "select * from user u where u.user_name=:name and u.user_pwd=:pwd",nativeQuery = true)
-    public User getuser(@Param("name") String userName,@Param("pwd") int pwd);
+    public User getuser(@Param("name") String userName, @Param("pwd") int pwd);
     @Query(value = "select * from user u where u.user_name=:name",nativeQuery = true)
     public User getUserByName(@Param("name") String name);
     /**
